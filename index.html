@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MusicVibe</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-music"></i>
+            <span>MusicVibe</span>
+        </div>
+       <!-- ... in navbar ... -->
+<ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#">Library</a></li>
+    <li><a href="#">Favorites</a></li>
+    <li><a href="profile.html" class="active">Profile</a></li>
+</ul>
+        <div class="theme-toggle">
+            <i class="fas fa-moon"></i>
+        </div>
+    </nav>
+
+ <!-- ... existing code until main-container ... -->
+
+<div class="main-container">
+    <div class="sidebar">
+        <div class="music-add" id="dropZone">
+            <h3>Add Music</h3>
+            <div class="upload-header">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <span>Upload Songs</span>
+            </div>
+            <input type="text" id="songName" placeholder="Enter song name">
+            <label for="songFile" class="file-upload">
+                <i class="fas fa-upload"></i> Choose MP3
+                <input type="file" id="songFile" accept="audio/mp3,.mp3" onchange="handleFileSelect(event)" multiple>
+            </label>
+            <div class="drag-text">
+                <p>or drag and drop MP3 files here</p>
+            </div>
+            <button onclick="addSong()" class="primary">Add to Playlist</button>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="playlist">
+            <h2>Your Music Collection</h2>
+            <div class="playlist-container">
+                <div class="playlist-header">
+                    <div class="playlist-controls">
+                        <button id="clearPlaylist" onclick="clearPlaylist()" title="Clear Playlist">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                <div id="songList" class="song-list">
+                    <!-- Songs will be dynamically added here -->
+                    <!-- Example of how each song item should be structured: -->
+                    <div class="song-item">
+                        <div class="song-info">
+                            <i class="fas fa-music"></i>
+                            <span class="song-name">Song Name</span>
+                        </div>
+                        <div class="song-controls">
+                            <button class="play-song">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <button class="remove-song">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ... rest of existing code ... -->
+
+    <div class="bottom-player">
+        <div class="now-playing">
+            <img src="default-album.png" id="albumArt" alt="Album Art">
+            <div class="song-details">
+                <div id="currentSong">No song playing</div>
+                <div class="artist">Unknown Artist</div>
+            </div>
+        </div>
+
+        <div class="player-controls">
+            <div class="control-buttons">
+                <button id="shuffleBtn" class="control-btn" title="Shuffle">
+                    <i class="fas fa-random"></i>
+                </button>
+                <button id="prevBtn" class="control-btn" title="Previous">
+                    <i class="fas fa-backward"></i>
+                </button>
+                <button id="playBtn" class="play-btn" title="Play/Pause">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button id="nextBtn" class="control-btn" title="Next">
+                    <i class="fas fa-forward"></i>
+                </button>
+                <button id="repeatBtn" class="control-btn" title="Repeat">
+                    <i class="fas fa-redo"></i>
+                </button>
+            </div>
+            <div class="progress-container">
+                <span class="time current" id="currentTime">0:00</span>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <span class="time total" id="duration">0:00</span>
+            </div>
+        </div>
+
+        <div class="volume-control">
+            <button class="volume-btn" id="volumeBtn">
+                <i class="fas fa-volume-up"></i>
+            </button>
+            <div class="volume-slider-container">
+                <input type="range" class="volume-slider" id="volumeSlider" 
+                       min="0" max="100" value="100" title="Volume">
+                <div class="volume-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="audioPlayer"></audio>
+
+    <!-- Notification container for alerts -->
+    <div id="notification" class="notification"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

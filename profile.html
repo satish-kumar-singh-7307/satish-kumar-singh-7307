@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - MusicVibe</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-music"></i>
+            <span>MusicVibe</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Library</a></li>
+            <li><a href="#">Favorites</a></li>
+            <li><a href="profile.html" class="active">Profile</a></li>
+        </ul>
+        <div class="theme-toggle">
+            <i class="fas fa-moon"></i>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="profile-container">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <img src="default-avatar.png" alt="Profile Picture" id="profilePic">
+                    <div class="avatar-overlay">
+                        <label for="avatarUpload" class="upload-btn">
+                            <i class="fas fa-camera"></i>
+                            <input type="file" id="avatarUpload" accept="image/*" hidden>
+                        </label>
+                    </div>
+                </div>
+                <div class="profile-info">
+                    <h1 id="displayName">Guest User</h1>
+                    <p id="userEmail">guest@example.com</p>
+                </div>
+            </div>
+
+            <div class="profile-sections">
+                <div class="profile-section">
+                    <h2>Account Settings</h2>
+                    <form id="profileForm" class="settings-form">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" placeholder="Enter username">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" placeholder="Enter new password">
+                        </div>
+                        <button type="submit" class="primary">Save Changes</button>
+                    </form>
+                </div>
+
+                <div class="profile-section">
+                    <h2>Your Stats</h2>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <i class="fas fa-music"></i>
+                            <span class="stat-value">127</span>
+                            <span class="stat-label">Songs</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-clock"></i>
+                            <span class="stat-value">48h</span>
+                            <span class="stat-label">Listening Time</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-heart"></i>
+                            <span class="stat-value">32</span>
+                            <span class="stat-label">Favorites</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-section">
+                    <h2>Recent Activity</h2>
+                    <div class="activity-list">
+                        <!-- Activity items will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="profile.js"></script>
+</body>
+</html>
